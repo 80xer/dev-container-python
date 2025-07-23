@@ -1,0 +1,5 @@
+# 매 분마다 스크레이핑 스크립트를 실행합니다.
+# 실행 결과(표준 출력 및 오류)는 /var/log/cron.log 파일에 추가됩니다.
+* * * * * python /app/scripts/scrape_quotes.py >> /var/log/cron.log 2>&1
+
+# cron 파일은 마지막에 빈 줄이 있어야 안정적으로 동작합니다.
