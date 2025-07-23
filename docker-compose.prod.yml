@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # volumes는 운영 환경에서 일반적으로 사용하지 않음 (코드 변경이 없으므로)
+    # command는 entrypoint.sh에 의해 결정되므로 여기서는 제거
+    # depends_on은 db 서비스가 없으므로 제거
+    # DATABASE_URL은 배포 환경에서 직접 주입됨

@@ -11,9 +11,8 @@ services:
     # ports:
     #   - "8000:8000"
     command: sleep infinity # Dev Container가 계속 실행되도록 유지
-    environment:
-      # Dev Container 내부에서 DB 서비스에 접근할 수 있도록 DATABASE_URL 설정
-      DATABASE_URL: postgresql://postgres:password@db:5432/local-database
+    env_file:
+      - .env # .env 파일에서 환경 변수 로드
     depends_on:
       - db
 
@@ -26,7 +25,7 @@ services:
       POSTGRES_DB: local-database
     volumes:
       - db_data:/var/lib/postgresql/data
-    ports:
+    ports: # 로컬 개발용이므로 외부 노출
       - "5432:5432"
 
 volumes:
