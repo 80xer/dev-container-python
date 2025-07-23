@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/workspaces:cached
+    # Dev Container가 사용할 포트 포워딩 (선택 사항)
+    # ports:
+    #   - "8000:8000"
+    command: sleep infinity # Dev Container가 계속 실행되도록 유지
+    environment:
+      # Dev Container 내부에서 DB 서비스에 접근할 수 있도록 DATABASE_URL 설정
+      DATABASE_URL: postgresql://postgres:password@db:5432/local-database
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: local-database
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  db_data:

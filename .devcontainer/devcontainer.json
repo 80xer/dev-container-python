@@ -1,16 +1,11 @@
 {
   "name": "Python Web Crawler",
-  "dockerFile": "../Dockerfile",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces",
   "customizations": {
     "vscode": {
-      "extensions": [
-        "ms-python.python"
-      ]
-    }
-  },
-  "features": {
-    "ghcr.io/devcontainers/features/git:1": {
-      "version": "latest"
+      "extensions": ["ms-python.python"]
     }
   },
   "postCreateCommand": "pip install -r requirements.txt",
