@@ -56,6 +56,7 @@
 
 - **`docker-compose.yml`**: 로컬 개발용 Docker Compose 파일입니다. `app` 서비스와 함께 PostgreSQL 데이터베이스(`db` 서비스) 컨테이너를 함께 실행합니다. `db` 서비스는 호스트의 5432 포트로 포워딩되어 외부 DB 클라이언트에서 접속 가능합니다.
 - **`.env`**: 로컬 개발 환경에서 `app` 서비스가 사용할 `DATABASE_URL`을 정의합니다. (예: `DATABASE_URL=postgresql://postgres:password@db:5432/local-database`)
+- **`.env.example`**: `.env` 파일 생성을 위한 예시 파일입니다. 이 파일을 `.env`로 복사하여 로컬 개발 환경 변수를 설정합니다.
 - **`requirements-prod.txt`**: 운영 환경에서 애플리케이션 실행에 필수적인 Python 의존성 목록입니다.
 - **`requirements-dev.txt`**: 개발 및 테스트에 필요한 Python 의존성(예: `pytest`) 목록입니다.
 - **`devcontainer.json`**: 개발 컨테이너가 생성될 때 `requirements-prod.txt`와 `requirements-dev.txt`의 의존성을 마운트된 작업 공간에 설치하도록 `postCreateCommand`가 설정되어 있습니다.
