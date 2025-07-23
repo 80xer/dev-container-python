@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# 데이터베이스 테이블 초기화 (테이블이 없으면 생성)
-python -c "from database import get_engine, create_table; engine = get_engine(); create_table(engine); engine.dispose()"
-
 # rsyslog 서비스 시작 (cron 로그를 위해 필요)
 rsyslogd
 

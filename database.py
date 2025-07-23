@@ -33,6 +33,7 @@ def save_quote(engine, quote, author):
     """
     명언을 데이터베이스에 저장합니다.
     """
+    create_table(engine) # 테이블이 없으면 생성
     conn = engine.connect()
     try:
         ins = quotes_table.insert().values(quote=quote, author=author)

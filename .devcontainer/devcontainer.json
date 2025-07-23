@@ -8,6 +8,7 @@
       "extensions": ["ms-python.python"]
     }
   },
+  "preCreateCommand": "docker compose -f ../docker-compose.yml down",
   "postCreateCommand": "pip install -r requirements.txt",
   "overrideCommand": false
 }
