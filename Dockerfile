@@ -19,8 +19,7 @@ COPY --from=prod_deps_builder /usr/local/lib/python3.11/site-packages /usr/local
 
 # 2. cron 스케줄 설정
 COPY scheduler.cron /etc/cron.d/scheduler
-RUN chmod 0644 /etc/cron.d/scheduler && \
-    crontab /etc/cron.d/scheduler
+RUN chmod 0644 /etc/cron.d/scheduler
 
 # 3. 나머지 애플리케이션 코드 복사
 COPY . .

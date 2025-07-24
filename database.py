@@ -2,8 +2,9 @@ import os
 from sqlalchemy import create_engine, Column, Integer, String, MetaData, Table
 from sqlalchemy.exc import IntegrityError
 
-# 환경 변수에서 DATABASE_URL을 읽어오거나, 기본값으로 SQLite 사용
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///quotes.db")
+# 환경 변수에서 DATABASE_URL을 읽어옵니다.
+# 이 변수가 설정되지 않으면 프로그램은 즉시 예외를 발생시키며 중지됩니다.
+DATABASE_URL = os.environ["DATABASE_URL"]
 
 metadata = MetaData()
 
